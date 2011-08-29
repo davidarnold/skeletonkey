@@ -1,15 +1,11 @@
-var file = '';
+#!/usr/bin/env node
 
-process.stdin.resume();
-process.stdin.on('data', function (data) {
-    file += data;
-});
-process.stdin.on('end', function() {
-    var u = require("uglify-js"), ast;
+var fs = require('fs'), ujs = require("uglify-js"), file, ast;
 
-    ast = u.parser.parse(file);
-    ast = u.uglify.ast_mangle(ast);
-    ast = u.uglify.ast_squeeze(ast);
-    process.stdout.write('javascript:' + encodeURI(u.uglify.gen_code(ast)) + '\n');
-});
+file = fs.readFileSync('skeletonkey.js', 'utf8');
+ast = ujs.parser.parse(file);
+ast = ujs.uglify.ast_mangle(ast);
+ast = ujs.uglify.ast_squeeze(ast);
+process.stdout.write('javascript:' + encodeURI(ujs.uglify.gen_code(ast)) + '\n');
+
 
