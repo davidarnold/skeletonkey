@@ -22,16 +22,16 @@ Details
 
 Skeleton Key uses the [SHA-256](http://en.wikipedia.org/wiki/SHA-2) and [RFC 2104](http://www.ietf.org/rfc/rfc2104.txt) HMAC algorithms to combine the site domain and passphrase.
 
-By default, the site password is 14 characters of base 58 encoded text.  This generates about 82 bits of entropy and complies with most sites' password rules.
+By default, the generated site password will be 14 characters of base 58 encoded text.  This generates about 82 bits of entropy and complies with the password rules of most sites.
 
-If you need to generate a shorter password or include special characters due to more restrictive site rules, just make the change before you paste it into the password field.  Of course, you can always modify the bookmarklet source code to better suit your needs.
+If you need a shorter password or special characters to satisfy restrictive site rules, just make the change to the generated password before you paste it into the password field.  Of course, you can always modify the bookmarklet source code to better suit your needs.
 
 Building
 --------
 
-The project includes a `build.js` file which simply minifies the Javascript source and then URI encodes it.  The script requires [Node](https://github.com/joyent/node) and [UglifyJS](https://github.com/mishoo/UglifyJS).
+The project includes a `build.js` file which minifies the Javascript source and then URI encodes it.  The script requires [Node](https://github.com/joyent/node) and [UglifyJS](https://github.com/mishoo/UglifyJS).
 
-You can use the included Python version of the algorithm to verify the correctness of the final bookmarklet.
+You can also use the included Python version of the Skeleton Key logic to test the correctness of the compiled bookmarklet.
 
 Credits
 -------
